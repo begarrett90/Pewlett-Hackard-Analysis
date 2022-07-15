@@ -1,3 +1,4 @@
+--Deliverable 1
 SELECT e.emp_no,
 	e.first_name,
 	e.last_name,
@@ -32,3 +33,17 @@ INTO retiring_titles
 FROM unique_titles as ut
 GROUP BY ut.title
 ORDER BY title_count DESC;
+
+-- Mentorship Eligibiltiy Table (Deliverable 2)
+
+SELECT DISTINCT ON (e.emp_no)
+	e.emp_no,
+	e.first_name,
+	e.last_name,
+	e.birth_date,
+	de.from_date,
+	de.to_date,
+	ti.title
+INTO mentorship_eligibility
+FROM employees as e
+JOIN dept_employees as de
